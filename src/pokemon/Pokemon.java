@@ -3,7 +3,10 @@ package pokemon;
 public class Pokemon {
 
 	public static void main(String[] args) {
-		System.out.println("Hola ke ase");
+		Principal principal = new Principal();
+		Formulario formulario = new Formulario();
+		principal.setVisible(true);
+		formulario.setVisible(false);
 
 	}
 
