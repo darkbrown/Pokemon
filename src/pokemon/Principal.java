@@ -1,16 +1,12 @@
 package pokemon;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
+import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-
-import imagenes.*;
-
-import java.awt.Toolkit;
+import imagenes.imagenes;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -44,7 +40,7 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\cris_\\Desktop\\250px-Pikachu_SSB4.png"));
+		setIconImage(imagenes.getIconoAplicacion());
 		
 		setTitle("Base de Datos Pokemon");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

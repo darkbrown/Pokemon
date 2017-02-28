@@ -50,7 +50,7 @@ public class Formulario extends JFrame {
 	 * Create the frame.
 	 */
 	public Formulario() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\cris_\\Desktop\\250px-Pikachu_SSB4.png"));
+		setIconImage(imagenes.getIconoAplicacion());
 		setTitle("Formulario Pokemon");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 400);
@@ -72,7 +72,7 @@ public class Formulario extends JFrame {
 		lblImage.setBorder(border);
 		panelImage.add(lblImage);
 		//Cargo la imagen de imagen no disponibe.
-		Icon imagen = new ImageIcon(imagenes.getImgLogo().getImage().getScaledInstance(lblImage.getWidth(),
+		Icon imagen = new ImageIcon(imagenes.getImgAusente().getImage().getScaledInstance(lblImage.getWidth(),
 				lblImage.getHeight(), Image.SCALE_DEFAULT));
 		lblImage.setText(null);
 		lblImage.setIcon(imagen);
