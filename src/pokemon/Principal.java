@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import imagenes.*;
+
 import java.awt.Toolkit;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -16,7 +18,6 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
-
 @SuppressWarnings("serial")
 public class Principal extends JFrame {
 
