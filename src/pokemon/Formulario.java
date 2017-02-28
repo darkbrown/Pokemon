@@ -1,9 +1,8 @@
 package pokemon;
 
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.EventQueue;
-
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -16,12 +15,15 @@ import java.awt.Font;
 import java.awt.Image;
 import imagenes.imagenes;
 import javax.swing.JButton;
-import java.awt.Toolkit;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JSpinner;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
+
+
 public class Formulario extends JFrame {
 
 	private JPanel contentPane;
@@ -29,7 +31,17 @@ public class Formulario extends JFrame {
 	private JTextField txtVida;
 	private JTextField txtPuntos;
 	private JTextField txtApodo;
-
+	private JComboBox<String>  cboTipo;
+	
+	private void llenarCboTipos(){
+		cboTipo.addItem("Fuego, Agua, Tierra...");
+		cboTipo.addItem("Fuego");
+		cboTipo.addItem("Agua");
+		cboTipo.addItem("Tierra");
+		cboTipo.addItem("Veneno");
+		cboTipo.addItem("Volador");
+	}
+	
 	/**
 	 * Launch the application.
 	 */
@@ -45,6 +57,7 @@ public class Formulario extends JFrame {
 			}
 		});
 	}
+
 
 	/**
 	 * Create the frame.
@@ -79,6 +92,13 @@ public class Formulario extends JFrame {
 		
 		
 		JButton btnImage = new JButton("Subir Imagen");
+		btnImage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		
+		
+		
 		btnImage.setBounds(74, 273, 109, 30);
 		panelImage.add(btnImage);
 		
@@ -92,9 +112,10 @@ public class Formulario extends JFrame {
 		panelDatos.add(txtNombre);
 		txtNombre.setColumns(10);
 		
-		JComboBox cboTipo = new JComboBox();
+		cboTipo = new JComboBox<String>();	
 		cboTipo.setBounds(122, 52, 226, 30);
 		panelDatos.add(cboTipo);
+		llenarCboTipos();
 		
 		JSpinner spiPeso = new JSpinner();
 		spiPeso.setBounds(122, 93, 50, 30);
@@ -124,6 +145,30 @@ public class Formulario extends JFrame {
 		panelDatos.add(btnCancelar);
 		
 		JButton btnGuardar = new JButton("Guardar");
+		
+		//Almacenar los datos en la tabla de la ventana principal
+		//y comprobar que no tenga campos vacios
+		btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Object[] fila = new Object[7];
+				
+				fila[0] = txtNombre.getText();
+				fila[1] = cboTipo.getSelectedItem();
+				fila[2] = spiPeso.getValue();
+				fila[3] = spiAltura.getValue();
+				fila[4] = txtVida.getText();
+				fila[5] = txtPuntos.getText();
+				fila[6] = txtApodo.getText();
+				
+				Principal.llenarTabla(fila);
+				
+			}
+		});
+		
+		
+		
+		
 		btnGuardar.setBounds(239, 270, 109, 30);
 		panelDatos.add(btnGuardar);
 		
@@ -172,4 +217,6 @@ public class Formulario extends JFrame {
 		lblApodo.setBounds(55, 218, 85, 30);
 		panelDatos.add(lblApodo);
 	}
+	
+
 }

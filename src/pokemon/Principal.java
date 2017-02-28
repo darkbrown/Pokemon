@@ -18,11 +18,28 @@ import javax.swing.JScrollPane;
 public class Principal extends JFrame {
 
 	private JPanel contentPane;
-	private JTable tblPokemons;
+	private static JTable tblPokemons;
 
 	/**
 	 * Launch the application.
 	 */
+	public static void llenarTabla(Object[] fila){
+		DefaultTableModel model;
+		model = new DefaultTableModel();
+		model.addColumn("Nombre");
+		model.addColumn("Tipo");
+		model.addColumn("Peso");
+		model.addColumn("Altura");
+		model.addColumn("Vida");
+		model.addColumn("Puntos Combate");
+		model.addColumn("Apodo");
+		
+		tblPokemons.getTableHeader().setReorderingAllowed(false);
+		tblPokemons.setModel(model);
+		
+		model.addRow(fila);
+	}
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -59,9 +76,10 @@ public class Principal extends JFrame {
 		JButton btnNuevo = new JButton("Nuevo Pokemon");
 		btnNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 			}
 		});
-		btnNuevo.setBounds(223, 11, 109, 31);
+		btnNuevo.setBounds(223, 11, 131, 31);
 		panel.add(btnNuevo);
 		
 		JButton btnEditar = new JButton("Editar");
@@ -69,7 +87,7 @@ public class Principal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnEditar.setBounds(342, 11, 109, 31);
+		btnEditar.setBounds(364, 11, 109, 31);
 		panel.add(btnEditar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
@@ -77,8 +95,14 @@ public class Principal extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnEliminar.setBounds(461, 11, 109, 31);
+		btnEliminar.setBounds(483, 11, 109, 31);
 		panel.add(btnEliminar);
+		
+				
+		JLabel lblTitulo = new JLabel("Pokemons Registrados ");
+		lblTitulo.setBounds(10, 4, 180, 40);
+		panel.add(lblTitulo);
+		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 76, 664, 274);
@@ -86,12 +110,6 @@ public class Principal extends JFrame {
 		
 		tblPokemons = new JTable();
 		scrollPane.setViewportView(tblPokemons);
-		
-				
-		JLabel lblTitulo = new JLabel("Pokemons Registrados ");
-		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblTitulo.setBounds(10, 76, 664, 274);
-		panel.add(lblTitulo);
 		DefaultTableModel model;
 		model = new DefaultTableModel();
 		model.addColumn("Nombre");
@@ -105,12 +123,7 @@ public class Principal extends JFrame {
 		tblPokemons.getTableHeader().setReorderingAllowed(false);
 		tblPokemons.setModel(model);
 		
-		Object[] fila= new Object[7];
 		
-		fila[0] = "Hola";
-		fila[1] = "Adios";
-		
-		model.addRow(fila);
 		
 	}
 }

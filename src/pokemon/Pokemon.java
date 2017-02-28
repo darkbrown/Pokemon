@@ -1,6 +1,6 @@
 package pokemon;
 
-import imagenes.imagenes;
+
 
 public class Pokemon {
 
@@ -8,7 +8,7 @@ public class Pokemon {
 		Principal principal = new Principal();
 		Formulario formulario = new Formulario();
 		principal.setVisible(true);
-		formulario.setVisible(false);
+		formulario.setVisible(true);
 		
 		
 	}
